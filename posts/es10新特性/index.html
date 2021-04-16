@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.82.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> &middot; My New Hugo Site</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="http://qiul.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://qiul.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://qiul.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://qiul.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://qiul.github.io/"><h1>My New Hugo Site</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="http://qiul.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1></h1>
+  <time datetime=0001-01-01T00:00:00Z class="post-date">Mon, Jan 1, 0001</time>
+  <h1 id="es10-新特性">ES10 新特性</h1>
+<h2 id="array-新增code-stylecolorff502cflatcode和code-stylecolorff502cflatmapcode方法">Array 新增<!-- raw HTML omitted -->flat()<!-- raw HTML omitted -->和<!-- raw HTML omitted -->flatMap()<!-- raw HTML omitted -->方法</h2>
+<h3 id="1-flat">1. flat()</h3>
+<p><!-- raw HTML omitted -->Array.prototype.flat()<!-- raw HTML omitted -->用于将嵌套的数组“拉平”，变成一维数组。该方法返回一个新数组，对原数据没有影响。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]];
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">flat</span>());
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr1</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, [<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>]]]];
+<span style="color:#75715e">// 指定遍历深度
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr1</span>.<span style="color:#a6e22e">flat</span>(<span style="color:#ae81ff">3</span>));
+<span style="color:#75715e">// 无限遍历
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr1</span>.<span style="color:#a6e22e">flat</span>(<span style="color:#66d9ef">Infinity</span>));
+<span style="color:#75715e">// 去除数组的空项
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr2</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, , , , <span style="color:#ae81ff">4</span>];
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr2</span>.<span style="color:#a6e22e">flat</span>());
+</code></pre></div><h3 id="2flatmap">2.flatMap()</h3>
+<p><!-- raw HTML omitted -->flatMap()<!-- raw HTML omitted -->方法对原数组的每个成员执行一个函数，相当于执行<!-- raw HTML omitted -->Array.prototype.map()<!-- raw HTML omitted -->，然后对返回值组成的数组执行<!-- raw HTML omitted -->flat()<!-- raw HTML omitted -->方法。返回一个新数组，不改变原数组。<!-- raw HTML omitted -->flatMap()<!-- raw HTML omitted -->只能展开一层数组。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr1</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>];
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr1</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">x</span>) =&gt; [<span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>])); <span style="color:#75715e">// [[2], [4], [6], [8]]
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr1</span>.<span style="color:#a6e22e">flatMap</span>((<span style="color:#a6e22e">x</span>) =&gt; [<span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>])); <span style="color:#75715e">// [2, 4, 6, 8]
+</span></code></pre></div><h2 id="code-stylecolorff502cobjectfromentriescode"><!-- raw HTML omitted -->Object.fromEntries()<!-- raw HTML omitted --></h2>
+<p><code>Object.fromEntries()</code> 方法把键值对列表转换为一个对象。我们先用一个例子来了解一下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">entries</span> <span style="color:#f92672">=</span> [
+  [<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;测试&#34;</span>],
+  [<span style="color:#e6db74">&#34;address&#34;</span>, <span style="color:#e6db74">&#34;beijing&#34;</span>],
+];
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>(<span style="color:#a6e22e">entries</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(Object.<span style="color:#a6e22e">fromEntries</span>(<span style="color:#a6e22e">map</span>)); <span style="color:#75715e">// {name: &#34;测试&#34;, address: &#34;beijing&#34;}
+</span></code></pre></div><blockquote>
+<p><!-- raw HTML omitted -->Object.fromEntries()<!-- raw HTML omitted --> 方法接收一个键值对的列表参数，并返回一个带有这些键值对的新对象。这个迭代参数应该是一个能够实现<!-- raw HTML omitted -->@@iterator<!-- raw HTML omitted -->方法的的对象，返回一个迭代器对象。它生成一个具有两个元素的类数组的对象，第一个元素是将用作属性键的值，第二个元素是与该属性键关联的值。</p>
+</blockquote>
+<p><!-- raw HTML omitted -->Object.fromEntries()<!-- raw HTML omitted --> 方法和 <!-- raw HTML omitted -->Object.entries()<!-- raw HTML omitted --> 是可以互逆操作的，所以我们就可以这样操作：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">object1</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">c</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span> };
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">object2</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">fromEntries</span>(
+  Object.<span style="color:#a6e22e">entries</span>(<span style="color:#a6e22e">object1</span>).<span style="color:#a6e22e">map</span>(([<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">val</span>]) =&gt; [<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">val</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>])
+);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">object2</span>); <span style="color:#75715e">// { a: 2, b: 4, c: 6 }
+</span></code></pre></div><h2 id="code-stylecolorff502cstringprototypematchallcode"><!-- raw HTML omitted -->String.prototype.matchAll<!-- raw HTML omitted --></h2>
+<p><!-- raw HTML omitted -->matchAll()<!-- raw HTML omitted --> 方法返回一个包含所有匹配正则表达式的结果及分组捕获组的迭代器。</p>
+<p><!-- raw HTML omitted -->matchAll()<!-- raw HTML omitted --> 出现之前，我们通过在循环中调用 <!-- raw HTML omitted -->regexp.exec()<!-- raw HTML omitted --> 来获取所有匹配项信息：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">regexp</span> <span style="color:#f92672">=</span> RegExp(<span style="color:#e6db74">&#34;foo[a-z]*&#34;</span>, <span style="color:#e6db74">&#34;g&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;table football, foosball&#34;</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">match</span>;
+
+<span style="color:#66d9ef">while</span> ((<span style="color:#a6e22e">match</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">str</span>)) <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(
+    <span style="color:#e6db74">`Found </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">match</span>[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> start=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">match</span>.<span style="color:#a6e22e">index</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> end=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">lastIndex</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.`</span>
+  );
+  <span style="color:#75715e">// Found football start=6 end=14.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Found foosball start=16 end=24.
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>如果使用 <!-- raw HTML omitted -->matchAll()<!-- raw HTML omitted --> ，就可以不必使用 while 循环加 <!-- raw HTML omitted -->exec<!-- raw HTML omitted --> 方式（且正则表达式需使用 <!-- raw HTML omitted -->/g<!-- raw HTML omitted --> 标志）。使用 <!-- raw HTML omitted -->matchAll<!-- raw HTML omitted --> 会得到一个迭代器的返回值，配合 <code>for...of</code>, <strong>扩展运算符</strong>, 或者 <code>Array.from()</code> 可以更方便实现功能：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">regexp</span> <span style="color:#f92672">=</span> RegExp(<span style="color:#e6db74">&#34;foo[a-z]*&#34;</span>, <span style="color:#e6db74">&#34;g&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;table football, foosball&#34;</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">mathces2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">matchAll</span>(<span style="color:#a6e22e">reg</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">mathces2</span>); <span style="color:#75715e">//RegExpStringIterator {}
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">mathces2</span>.<span style="color:#a6e22e">next</span>()); <span style="color:#75715e">// {value: [&#34;football&#34;, index: 6, ...], done: false}
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">res</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">mathces2</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>);
+  <span style="color:#75715e">// [&#34;foosball&#34;, index: 16, input: &#34;table football, foosball&#34;]
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#75715e">// 例2 使用扩展运算符
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">regexp</span> <span style="color:#f92672">=</span> RegExp(<span style="color:#e6db74">&#34;foo[a-z]*&#34;</span>, <span style="color:#e6db74">&#34;g&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">str1</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;table football, foosball&#34;</span>;
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">str1</span>.<span style="color:#a6e22e">match</span>(<span style="color:#a6e22e">regexp</span>));
+<span style="color:#75715e">// [&#34;football&#34;, &#34;foosball&#34;]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [...<span style="color:#a6e22e">str1</span>.<span style="color:#a6e22e">matchAll</span>(<span style="color:#a6e22e">regexp</span>)];
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr</span>);
+<span style="color:#75715e">// [
+</span><span style="color:#75715e">//     [&#34;football&#34;, index: 6, input: &#34;table football, foosball&#34;, groups: undefined],
+</span><span style="color:#75715e">//     [&#34;foosball&#34;, index: 16, input: &#34;table football, foosball&#34;, groups: undefined]
+</span><span style="color:#75715e">// ]
+</span></code></pre></div><h2 id="code-stylecolorff502cstringprototypetrimstartcode-和-code-stylecolorff502cstringprototypetrimendcode"><!-- raw HTML omitted -->String.prototype.trimStart()<!-- raw HTML omitted --> 和 <!-- raw HTML omitted -->String.prototype.trimEnd()<!-- raw HTML omitted --></h2>
+<blockquote>
+<p><!-- raw HTML omitted -->trimStart()<!-- raw HTML omitted --> 方法从字符串的开头删除空格。<!-- raw HTML omitted -->trimLeft()<!-- raw HTML omitted --> 是此方法的别名。
+<!-- raw HTML omitted -->trimStart()<!-- raw HTML omitted --> / <!-- raw HTML omitted -->trimLeft()<!-- raw HTML omitted --> 方法移除原字符串左端的连续空白符并返回一个新字符串，并不会直接修改原字符串本身。</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;   foo  &#34;</span>;
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span>); <span style="color:#75715e">// 8
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">trimStart</span>(); <span style="color:#75715e">// 等同于 str = str.trimLeft();
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span>); <span style="color:#75715e">// 5
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">str</span>); <span style="color:#75715e">// &#34;foo  &#34;
+</span></code></pre></div><blockquote>
+<p><!-- raw HTML omitted -->trimEnd()<!-- raw HTML omitted --> 方法从一个字符串的末端移除空白字符。<!-- raw HTML omitted -->trimRight()<!-- raw HTML omitted --> 是此方法的别名。
+<!-- raw HTML omitted -->trimEnd()<!-- raw HTML omitted --> / <!-- raw HTML omitted -->trimRight()<!-- raw HTML omitted --> 方法移除原字符串右端的连续空白符并返回一个新字符串，并不会直接修改原字符串本身。</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;   foo  &#34;</span>;
+
+<span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span>); <span style="color:#75715e">// 8
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">trimRight</span>(); <span style="color:#75715e">// 或写成str = str.trimEnd();
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span>); <span style="color:#75715e">// 6
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">str</span>); <span style="color:#75715e">// &#39;   foo&#39;
+</span></code></pre></div><h2 id="code-stylecolorff502csymbolprototypedescriptioncode"><!-- raw HTML omitted -->Symbol.prototype.description<!-- raw HTML omitted --></h2>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol</a> 对象可以通过一个可选的描述创建，可用于调试，但不能用于访问 symbol 本身。
+Symbol.prototype.description 属性可以用于读取该描述。
+与 Symbol.prototype.toString() 不同的是它不会包含 &ldquo;Symbol()&rdquo; 的字符串。具体请看实例。</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#34;desc&#34;</span>).<span style="color:#a6e22e">toString</span>(); <span style="color:#75715e">// &#34;Symbol(desc)&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#34;desc&#34;</span>).<span style="color:#a6e22e">description</span>; <span style="color:#75715e">// &#34;desc&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#34;&#34;</span>).<span style="color:#a6e22e">description</span>; <span style="color:#75715e">// &#34;&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Symbol</span>().<span style="color:#a6e22e">description</span>; <span style="color:#75715e">// undefined
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// well-known symbols
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Symbol</span>.<span style="color:#a6e22e">iterator</span>.<span style="color:#a6e22e">toString</span>(); <span style="color:#75715e">// &#34;Symbol(Symbol.iterator)&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Symbol</span>.<span style="color:#a6e22e">iterator</span>.<span style="color:#a6e22e">description</span>; <span style="color:#75715e">// &#34;Symbol.iterator&#34;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// global symbols
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Symbol</span>.<span style="color:#66d9ef">for</span>(<span style="color:#e6db74">&#34;foo&#34;</span>).<span style="color:#a6e22e">toString</span>(); <span style="color:#75715e">// &#34;Symbol(foo)&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Symbol</span>.<span style="color:#66d9ef">for</span>(<span style="color:#e6db74">&#34;foo&#34;</span>).<span style="color:#a6e22e">description</span>; <span style="color:#75715e">// &#34;foo&#34;
+</span></code></pre></div><h2 id="code-stylecolorff502ccatchcode-参数可以省略"><!-- raw HTML omitted -->catch<!-- raw HTML omitted --> 参数可以省略</h2>
+<p>在 ES10 之前，我们必须通过语法为 catch 子句绑定异常变量，无论是否有必要。很多时候 catch 块是多余的。 ES10 提案使我们能够简单的把变量省略掉。</p>
+<p>ES10 之前</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">try</span> {
+} <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {}
+</code></pre></div><p>ES10 之前</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">try</span> {
+} <span style="color:#66d9ef">catch</span> {}
+</code></pre></div><h2 id="行分隔符和段分隔符草案">行分隔符和段分隔符（草案）</h2>
+<p>发行之后会解决行分隔符（\n）和段分隔符（\r）在字符串中，使用<code>JSON.stringify()</code> 的报错问题</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">json</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{&#34;name&#34;:&#34;abcd\nsdhajkk&#34;}&#39;</span>;
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">json</span>);
+<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">json</span>); <span style="color:#75715e">// 解决报错问题
+</span></code></pre></div><h2 id="更加友好的code-stylecolorff502cjsonstringifycode">更加友好的<!-- raw HTML omitted -->JSON.stringify<!-- raw HTML omitted --></h2>
+<p>此更新修复了字符 <code>U+D800</code> 到 <code>U+DFFF</code> 的处理，有时可以进入 <strong>JSON</strong> 字符串。 这可能是一个问题，因为 <!-- raw HTML omitted -->JSON.stringify<!-- raw HTML omitted -->可能会将这些数字格式化为没有等效 <strong>UTF-8</strong> 字符的值, 但 <strong>JSON</strong> 格式需要 <strong>UTF-8</strong> 编码。</p>
+<p>解析方法使用格式良好的 JSON 字符串，如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">&#39;{ &#34;prop1&#34; : 1, &#34;prop2&#34; : 2 }&#39;</span>; <span style="color:#75715e">// A well-formed JSON format string
+</span><span style="color:#75715e"></span>
+</code></pre></div><p>注意，要创建正确 JSON 格式的字符串，绝对需要在属性名周围加上双引号。缺少或任何其他类型的引号都不会生成格式良好的 JSON。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">&#39;{ &#34;prop1&#34; : 1, &#34;meth&#34; : () =&gt; {}}&#39;</span>; <span style="color:#75715e">// Not JSON format string
+</span><span style="color:#75715e"></span>
+</code></pre></div><p>JSON 字符串格式与 <strong>Object Literal</strong> 不同，后者看起来几乎一样，但可以使用任何类型的引号括住属性名，也可以包含方法(JSON 格式不允许使用方法):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">object_literal</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">property</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">meth</span><span style="color:#f92672">:</span> () =&gt; {} };
+</code></pre></div><h3 id="u2028-和-u2029-字符">U+2028 和 U+2029 字符</h3>
+<p>问题是， ES10 之前的 EcmaScript 实际上并不完全支持 JSON 格式。前 ES10 时代不接受未转义行分隔符 U+2028 和段落分隔符 U+2029 字符:</p>
+<h5 id="对于-ud800---udfff-之间的所有字符也是如此">对于 U+D800 - U+DFFF 之间的所有字符也是如此</h5>
+<p>如果这些字符潜入 JSON 格式的字符串(假设来自数据库记录)，你可能会花费数小时试图弄清楚为什么程序的其余部分会产生解析错误。</p>
+<p>因此，如果你传递 <strong>eval</strong> 这样的字符串 <code>console.log(' hello ')</code>，它将执行 JavaScript 语句 (通过尝试将字符串转换为实际代码),也类似于 <code>JSON.parse</code> 将处理你的 <strong>JSON</strong> 字符串的方式。</p>
+<h2 id="修订了-code-stylecolorff502carrayprototypesortcode">修订了 <!-- raw HTML omitted -->Array.prototype.sort()<!-- raw HTML omitted --></h2>
+<p><strong>V8</strong> 之前的实现的小于 10 的数组采用插入排序，快速排序不稳定的排序 O(n^2)。</p>
+<p>新的 <strong>V8</strong> 使用 <strong>TimSort</strong> 排序算法，时间复杂度 O(nlogn)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 非稳定
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [
+  {
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;w&#34;</span>,
+    <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span>,
+  },
+  {
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ww&#34;</span>,
+    <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>,
+  },
+  {
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;www&#34;</span>,
+    <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>,
+  },
+];
+<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">age</span>);
+<span style="color:#75715e">// 排序后  会改变两个age为4的顺序
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e">    [
+</span><span style="color:#75715e">        {name: &#39;www&#39;, age: 4},
+</span><span style="color:#75715e">        {name: &#39;ww&#39;, age: 4},
+</span><span style="color:#75715e">        {name: &#39;w&#39;, age: 18}
+</span><span style="color:#75715e">    ]
+</span><span style="color:#75715e">    稳定-&gt;
+</span><span style="color:#75715e">        {name: &#39;ww&#39;, age: 4},
+</span><span style="color:#75715e">        {name: &#39;www&#39;, age: 4},
+</span><span style="color:#75715e">        {name: &#39;w&#39;, age: 18}
+</span><span style="color:#75715e">*/</span>
+</code></pre></div><h2 id="新的code-stylecolorff502cfunctiontostringcode">新的<!-- raw HTML omitted -->Function.toString()<!-- raw HTML omitted --></h2>
+<p>函数是对象，并且每个对象都有一个 <code>toString()</code> 方法，因为它最初存在于<!-- raw HTML omitted -->Object.prototype.toString()<!-- raw HTML omitted --> 上。 所有对象（包括函数）都是通过基于原型的类继承从它继承的。</p>
+<p>这意味着我们以前已经有 <!-- raw HTML omitted -->funcion.toString()<!-- raw HTML omitted --> 方法了。</p>
+<p>但是 <strong>ES10</strong> 进一步尝试标准化所有对象和内置函数的字符串表示：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#75715e">/*注释*/</span> <span style="color:#a6e22e">foo</span> <span style="color:#75715e">/*注释*/</span>() {}
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">toString</span>()); <span style="color:#75715e">// function /*注释*/ foo /*注释*/() {}
+</span><span style="color:#75715e"></span>
+Number.parseInt.<span style="color:#a6e22e">toString</span>(); <span style="color:#75715e">// &#34;function parseInt() { [native code] }&#34;
+</span></code></pre></div><h2 id="bigint任意精度整数">BigInt：任意精度整数</h2>
+<p><strong>BigInt</strong> 是第七种原始类型。</p>
+<blockquote>
+<p>在 JavaScript 中，<strong>BigInt</strong> 是一种数字类型的数据，它可以表示任意精度格式的整数。而在其他编程语言中，可以存在不同的数字类型，例如:整数、浮点数、双精度数或大斐波数。</p>
+</blockquote>
+<p>Number 类型的最大安全整数为：2^53</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(Number.<span style="color:#a6e22e">MAX_SAFE_INTEGER</span>); <span style="color:#75715e">//9007199254740991
+</span></code></pre></div><p>BigInt 使用案例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#a6e22e">n</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">num2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span><span style="color:#a6e22e">n</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">bigIntNum</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">BigInt</span>(<span style="color:#ae81ff">12</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;类型&#34;</span>, <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">num</span>); <span style="color:#75715e">// BigInt
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;类型比较&#34;</span>, <span style="color:#a6e22e">num</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span>); <span style="color:#75715e">// false
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;类型比较&#34;</span>, <span style="color:#a6e22e">num</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>); <span style="color:#75715e">// true
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;运算&#34;</span>, <span style="color:#a6e22e">num</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">num2</span>); <span style="color:#75715e">// -9n 只能同类型运算
+</span></code></pre></div><h2 id="标准化-globalthis-对象">标准化 globalThis 对象</h2>
+<p>在 ES10 之前， globalThis 还没有标准化。所以我们在写框架代码中，自己定义标准化：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getGlobal</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">self</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;undefined&#34;</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">self</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> window <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;undefined&#34;</span>) <span style="color:#66d9ef">return</span> window;
+    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">global</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;undefined&#34;</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">global</span>;
+    <span style="color:#a6e22e">thorw</span> <span style="color:#66d9ef">new</span> Error()
+}
+</code></pre></div><p>但即使这样也不总是奏效。因此，ES10 添加了 globalThis 对象，从现在开始，该对象用于在任何平台上访问全局作用域:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 访问全局数组构造函数
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">globalThis</span>.Array(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>);
+<span style="color:#75715e">// [0, 1, 2]
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// 类似于 ES5 之前的 window.v = { flag: true }
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">globalThis</span>.<span style="color:#a6e22e">v</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">flag</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> };
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">globalThis</span>.<span style="color:#a6e22e">v</span>);
+<span style="color:#75715e">// { flag: true }
+</span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

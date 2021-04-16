@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://qiul.github.io/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://qiul.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://qiul.github.io/posts/es10%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://qiul.github.io/posts/es10%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+      <description>ES10 新特性 Array 新增flat()和flatMap()方法 1. flat() Array.prototype.flat()用于将嵌套的数组“拉平”，变成一维数组。该方法返回一个新数组，对原数据没有影响。
+const arr = [1, 2, 3, [4, 5]]; console.log(arr.flat()); const arr1 = [1, 2, 3, [4, 5, [6, 7, [8, 9]]]]; // 指定遍历深度 console.log(arr1.flat(3)); // 无限遍历 console.log(arr1.flat(Infinity)); // 去除数组的空项 const arr2 = [1, 2, 3, , , , 4]; console.log(arr2.flat()); 2.flatMap() flatMap()方法对原数组的每个成员执行一个函数，相当于执行Array.prototype.map()，然后对返回值组成的数组执行flat()方法。返回一个新数组，不改变原数组。flatMap()只能展开一层数组。
+const arr1 = [1, 2, 3, 4]; console.log(arr1.map((x) =&amp;gt; [x * 2])); // [[2], [4], [6], [8]] console.log(arr1.flatMap((x) =&amp;gt; [x * 2])); // [2, 4, 6, 8] Object.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://qiul.github.io/posts/es7-8%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://qiul.github.io/posts/es7-8%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+      <description>ES7-8 新特性 ECMAScript2016(ES7) 1. 判断数组是否包含某个值：includes 在includes数组方法还没出现的之前，我们想要判断数组中是否包含某个元素，我们会怎么写：
+  使用indexOf:
+const arr = [1, 2, 3, 4]; const hasOwn = (n) =&amp;gt; { return arr.indexOf(n) !== -1; }; if (hasOwn(1)) { // do something... }   数组遍历
+const arr = [1, 2, 3, 4]; const hasOwn = (arr, value) =&amp;gt; { for (const e of arr) { if (value === e) return true; } return false; }; if (hasOwn(arr, 1)) { // do something.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://qiul.github.io/posts/es9%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://qiul.github.io/posts/es9%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+      <description>ES9 新特性 异步迭代器（Asyncchronous Iterator） 基本概念 在 ECMAScript 2015(ES6) 中 JavaScript 引入了迭代器接口（itertor）用来遍历数据。迭代器对象知道如何每次访问集合中的一项， 并跟踪该序列中的当前位置。在 JavaScript 中迭代器是一个对象，它提供了一个 next() 方法，用来返回序列中的下一项。这个方法返回包含两个属性：done 和 value。
+迭代器对象一旦被创建，就可以反复调用 next()。现在我们创建一个简单的迭代器：
+const iterators = (item) =&amp;gt; { const keys = Object.keys(item); const len = keys.length; let points = 0; return { next() { const done = points &amp;gt;= len; const value = !done ? item[keys[points++]] : undefined; return { done, value, }; }, }; }; const data = { name: &amp;#34;test&amp;#34;, age: 30, }; const ite = iterators(data); console.</description>
+    </item>
+    
+  </channel>
+</rss>
